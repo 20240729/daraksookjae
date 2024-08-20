@@ -31,17 +31,17 @@ public class Step1 {
                     out.write(buffer, 0, n);
                 }
             }catch (IOException e){
-                e.printStackTrace();
+                System.out.println("예외3");
             }
 
             try {
                 in.close();
                 out.close();
             }catch (IOException e){
-                e.printStackTrace();
+                System.out.println("예외2");
             }
         }catch (FileNotFoundException e){
-            e.printStackTrace();
+            System.out.println("예외1");
         }
 
 
