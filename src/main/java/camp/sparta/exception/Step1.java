@@ -25,8 +25,13 @@ public class Step1 {
 
             byte[] buffer = new byte[1024];
             int n;
-            while ((n = in.read(buffer)) >= 0) {
-                out.write(buffer, 0, n);
+
+            try {
+                while ((n = in.read(buffer)) >= 0) {
+                    out.write(buffer, 0, n);
+                }
+            }catch (IOException e){
+                e.printStackTrace();
             }
 
             in.close();
