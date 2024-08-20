@@ -34,8 +34,12 @@ public class Step1 {
                 e.printStackTrace();
             }
 
-            in.close();
-            out.close();
+            try {
+                in.close();
+                out.close();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
         }catch (FileNotFoundException e){
             e.printStackTrace();
         }
