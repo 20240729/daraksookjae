@@ -19,16 +19,28 @@ public class Step3 {
         System.out.println("읽을 파일 : " + readFile);
         System.out.println("작성할 파일 : " + writeFile);
 
-        InputStream in = new FileInputStream(readFile);
-        OutputStream out = new FileOutputStream(writeFile);
+        try {
+            InputStream in = new FileInputStream(readFile);
+            OutputStream out = new FileOutputStream(writeFile);
 
-        byte[] buffer = new byte[1024];
-        int n;
-        while ((n = in.read(buffer)) >= 0) {
-            out.write(buffer, 0, n);
+            byte[] buffer = new byte[1024];
+            int n;
+            try {
+                while ((n = in.read(buffer)) >= 0) {
+                    out.write(buffer, 0, n);
+                }
+            }catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                in.close();
+                out.close();
+            }catch (IOException e) {
+                e.printStackTrace();
+            }
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
         }
-
-        in.close();
-        out.close();
     }
 }
