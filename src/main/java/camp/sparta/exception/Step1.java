@@ -19,8 +19,12 @@ public class Step1 {
         System.out.println("읽을 파일 : " + readFile);
         System.out.println("작성할 파일 : " + writeFile);
 
-        InputStream in = new FileInputStream(readFile);
-        OutputStream out = new FileOutputStream(writeFile);
+        try {
+            InputStream in = new FileInputStream(readFile);
+            OutputStream out = new FileOutputStream(writeFile);
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
 
         byte[] buffer = new byte[1024];
         int n;
