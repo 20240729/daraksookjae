@@ -22,17 +22,19 @@ public class Step1 {
         try {
             InputStream in = new FileInputStream(readFile);
             OutputStream out = new FileOutputStream(writeFile);
+
+            byte[] buffer = new byte[1024];
+            int n;
+            while ((n = in.read(buffer)) >= 0) {
+                out.write(buffer, 0, n);
+            }
+
+            in.close();
+            out.close();
         }catch (FileNotFoundException e){
             e.printStackTrace();
         }
 
-        byte[] buffer = new byte[1024];
-        int n;
-        while ((n = in.read(buffer)) >= 0) {
-            out.write(buffer, 0, n);
-        }
 
-        in.close();
-        out.close();
     }
 }
