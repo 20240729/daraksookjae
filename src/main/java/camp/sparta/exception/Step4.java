@@ -5,8 +5,11 @@ public class Step4 {
 
         int index = 4;
         Step4 step4 = new Step4();
-
-        System.out.println("결과 : " + step4.getElement(index));
+        try {
+            System.out.println("결과 : " + step4.getElement(index));
+        }catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("배열 길이 초과");
+        }
     }
 
     public int getElement(int index) {
